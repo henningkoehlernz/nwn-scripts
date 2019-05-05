@@ -14,6 +14,8 @@ TAB_WIDTH = 4
 column_width = [ width + (TAB_WIDTH - 1 - width % TAB_WIDTH) for width in column_max_width ]
 # extend 2da entries to match width
 formatted2da = [ [ row[col].ljust(column_width[col]) for col, value in enumerate(row) ] for row in raw2da ]
+# un-format first row (version number)
+formatted2da[0] = raw2da[0]
 # print
 for row in formatted2da:
     print(" ".join(row).rstrip())
